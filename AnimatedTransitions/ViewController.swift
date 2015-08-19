@@ -32,6 +32,11 @@ class ViewController: UIViewController {
         toViewController.transitioningDelegate = self.transitionManager
         
     }
+    
+    // we override this method to manage what style status bar is shown
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return self.presentingViewController == nil ? UIStatusBarStyle.Default : UIStatusBarStyle.LightContent
+    }
 
 }
 
