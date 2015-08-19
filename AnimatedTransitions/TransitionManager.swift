@@ -46,17 +46,6 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
         toView.layer.position = CGPoint(x:0, y:0)
         fromView.layer.position = CGPoint(x:0, y:0)
         
-//        // start the toView to the right of the screen
-//        if self.presenting == true {
-//            toView.transform = offScreenRight
-//
-//        } else {
-//            
-//            toView.transform = offScreenLeft
-//
-//        }
-        
-        
         // add the both views to our view controller
         container.addSubview(toView)
         container.addSubview(fromView)
