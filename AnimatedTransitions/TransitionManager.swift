@@ -29,15 +29,32 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
         let offScreenRight = CGAffineTransformMakeTranslation(container.frame.width, 0)
         let offScreenLeft = CGAffineTransformMakeTranslation(-container.frame.width, 0)
         
-        // start the toView to the right of the screen
-        if self.presenting == true {
-            toView.transform = offScreenRight
-
-        } else {
-            
-            toView.transform = offScreenLeft
-
-        }
+        // set up from 2D transforms that we'll use in the animation
+        let π : CGFloat = 3.14159265359
+        
+        let offScreenRotateIn = CGAffineTransformMakeRotation(-π/2)
+        let offScreenRotateOut = CGAffineTransformMakeRotation(π/2)
+        
+        // set the start location of toView depending if we're presenting or not
+        toView.transform = self.presenting! ? offScreenRotateIn : offScreenRotateOut
+        
+        // set the anchor point so that rotations happen from the top-left corner
+        toView.layer.anchorPoint = CGPoint(x:0, y:0)
+        fromView.layer.anchorPoint = CGPoint(x:0, y:0)
+        
+        // updating the anchor point also moves the position to we have to move the center position to the top-left to compensate
+        toView.layer.position = CGPoint(x:0, y:0)
+        fromView.layer.position = CGPoint(x:0, y:0)
+        
+//        // start the toView to the right of the screen
+//        if self.presenting == true {
+//            toView.transform = offScreenRight
+//
+//        } else {
+//            
+//            toView.transform = offScreenLeft
+//
+//        }
         
         
         // add the both views to our view controller
