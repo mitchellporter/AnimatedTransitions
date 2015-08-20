@@ -9,3 +9,6 @@ Part 1 Notes (http://mathewsanders.com/animated-transitions-in-swift/):
 
 - We’ve looked specifically at a modal transition, there are some differences when creating a transition for a push navigation or a changing screens in a tab bar but the general approach is the same.
 
+Part 2 Notes (http://mathewsanders.com/custom-menu-transitions-in-swift/):
+
+- Remember that you can set the alpha of the background color, instead of having to set the alpha of the actual view itself.
